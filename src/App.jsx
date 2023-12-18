@@ -1,9 +1,23 @@
+import { Routes, Route } from 'react-router-dom';
+import routes from './routes';
+
 function App() {
   return (
-    <>
-      <button className='bg-slate-600'>day la button</button>
-    </>
-  )
+    <Routes>
+      {routes.map((route) => (
+        <Route
+          key={route.path}
+          index={route.index}
+          path={route.path}
+          element={
+            <route.layout>
+              <route.component />
+            </route.layout>
+          }
+        />
+      ))}
+    </Routes>
+  );
 }
 
-export default App
+export default App;
