@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
-import routes from './routes';
+import { Routes, Route } from 'react-router-dom'
+import routes from './routes'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         />
       ))}
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

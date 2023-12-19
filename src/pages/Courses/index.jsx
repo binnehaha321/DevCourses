@@ -1,3 +1,3 @@
 export default function index() {
-  return <div>This is courses page</div>
+  return <div className="col-span-1">This is courses page</div>
 }

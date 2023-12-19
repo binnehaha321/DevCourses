@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import Sidebar from '../components/Sidebar';
+import LeftSidebar from '../components/LeftSidebar';
+import RightSidebar from '../components/RightSidebar';
 
 const DefaultLayout = ({ children }) => {
   return (
-    <div>
-      <>
-        <Sidebar />
-        <main>{children}</main>
-      </>
+    <div className="grid grid-cols-3 gap-4">
+      <LeftSidebar />
+      <main>{children}</main>
+      <RightSidebar />
     </div>
   );
 };
