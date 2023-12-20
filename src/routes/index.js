@@ -5,6 +5,7 @@ import Payment from '../pages/Payment/index'
 import Contact from '../pages/Contact/index'
 import Students from '../pages/Students/index'
 import Attendance from '../pages/Attendance/index'
+import CourseDetail from '../pages/Courses/CourseDetail'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
   {
     path: '/contact',
     component: Contact,
+    layout: DefaultLayout
+  },
+  {
+    path: '/courses/:id',
+    component: CourseDetail,
     layout: DefaultLayout
   }
 ]
