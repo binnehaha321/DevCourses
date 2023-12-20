@@ -28,7 +28,7 @@ export default function LeftSidebar() {
   };
 
   return (
-    <div className='col-span-1 '>
+    <div className='col-span-2'>
       <div id='sidebar-icon' className='mb-4 flex items-center'>
         <FontAwesomeIcon icon={faBookTanakh} size='2x' color='#9D9DF8' />
         <h1 className='text-2xl text-9D9DF8 font-bold ml-2'>SkillSet</h1>

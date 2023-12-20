@@ -19,7 +19,7 @@ const RightSidebar = () => {
     return '';
   };
   return (
-    <div className="col-span-1">
+    <div className="col-span-3">
       <div className="flex flex-col p-4">
         {/* First Row */}
         <div className="flex justify-between items-center mb-4">

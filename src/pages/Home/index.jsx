@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function index() {
   return (
-    <div className='col-span-1'>
+    <div>
       this is home page
     </div>
   )

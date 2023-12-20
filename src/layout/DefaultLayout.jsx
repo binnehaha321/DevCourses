@@ -4,9 +4,9 @@ import RightSidebar from '../components/RightSidebar';
 
 const DefaultLayout = ({ children }) => {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-10 gap-4">
       <LeftSidebar />
-      <main>{children}</main>
+      <main className='col-span-5'>{children}</main>
       <RightSidebar />
     </div>
   );
