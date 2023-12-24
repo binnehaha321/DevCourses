@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .highlight-weekend {
-    color: #0099FF;
-  }
+  color: #0099ff;
+}
