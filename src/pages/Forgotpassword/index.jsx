@@ -9,7 +9,7 @@ import { userservice } from '../../services/user.service'
 import { useAsync } from '../../hooks/useAsync'
 export default function ForgotPassword() {
   const { loading, disable, execute, setDisable } = useAsync(
-    userservice.resetpassword
+    userservice.resetPassword
   )
   const { validate, register, form } = useForm({
     username: [
