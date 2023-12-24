@@ -3,31 +3,40 @@ import {
   loadCoursesSuccess,
   loadCoursesFailed
 } from '../../store/courses/courses.slice'
+// import DEFAULT_THUMBNAIL from '../../static/images/defaultCourseThumbnail.png'
 
 import axios from 'axios'
-const checkThumbnailErrors = (courses, setThumbnailErrors) => {
-  const errors = []
-
+const checkThumbnailErrors = (thumbnail) => {
   // Create a promise for each course to load its thumbnail and handle errors
-  const promises = courses.map((course) => {
-    return new Promise((resolve) => {
-      const img = new Image()
-      img.src = course.thumbnailUrl
+  // const promises = courses.map((course) => {
+  //   return new Promise((resolve) => {
+  //     const img = new Image()
+  //     img.src = course.thumbnailUrl
 
-      // Handle errors using the onerror event
-      img.onerror = () => {
-        errors.push(course.id)
-        resolve()
-      }
+  //     // Handle errors using the onerror event
+  //     img.onerror = () => {
+  //       errors.push(course.id)
+  //       resolve()
+  //     }
 
-      // Resolve the promise when the image loads successfully
-      img.onload = resolve
-    })
-  })
+  //     // Resolve the promise when the image loads successfully
+  //     img.onload = resolve
+  //   })
+  // })
 
-  // Wait for all promises to resolve before updating the state
-  Promise.all(promises).then(() => {
-    setThumbnailErrors(errors)
+  if (!thumbnail) return
+
+  return new Promise((resolve) => {
+    const img = new Image()
+    img.src = thumbnail
+
+    // Handle errors using the onerror event
+    img.onerror = () => {
+      resolve(false)
+    }
+
+    // Resolve the promise when the image loads successfully
+    img.onload = resolve
   })
 }
 

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
 import {
   faHome,
   faUser,
@@ -9,7 +9,7 @@ import {
   faEnvelope,
   faBook,
   faBookTanakh
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons'
 
 export default function LeftSidebar() {
   const menuItems = [
@@ -19,13 +19,13 @@ export default function LeftSidebar() {
     { icon: faClipboard, title: 'Attendance', path: '/attendance' },
     { icon: faMoneyBill, title: 'Payment', path: '/payment' },
     { icon: faEnvelope, title: 'Contact', path: '/contact' }
-  ];
+  ]
 
-  const [activeItem, setActiveItem] = useState(menuItems[0].path);
+  const [activeItem, setActiveItem] = useState(menuItems[0].path)
 
   const handleClick = (path) => {
-    setActiveItem(path);
-  };
+    setActiveItem(path)
+  }
 
   return (
     <div className='col-span-2'>
@@ -33,8 +33,11 @@ export default function LeftSidebar() {
         <FontAwesomeIcon icon={faBookTanakh} size='2x' color='#9D9DF8' />
         <h1 className='text-2xl text-9D9DF8 font-bold ml-2'>SkillSet</h1>
       </div>
-  
-      <div className='flex flex-col justify-around ml-5' style={{height: "40vh"}}>
+
+      <div
+        className='flex flex-col justify-around ml-5'
+        style={{ height: '40vh' }}
+      >
         {menuItems.map((item, index) => (
           <div
             key={index}
@@ -47,11 +50,17 @@ export default function LeftSidebar() {
                 color={activeItem === item.path ? '#9D9DF8' : '#676d70'}
               />
             </div>
-            <div style={{ color: activeItem === item.path ? '#9D9DF8' : '#676d70' }}> <Link to={item.path}>{item.title}</Link> </div>
+            <div
+              style={{
+                color: activeItem === item.path ? '#9D9DF8' : '#676d70'
+              }}
+            >
+              {' '}
+              <Link to={item.path}>{item.title}</Link>{' '}
+            </div>
           </div>
         ))}
       </div>
     </div>
-  );
-  
+  )
 }
