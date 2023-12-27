@@ -30,10 +30,16 @@ export default function Login() {
       if (validate()) {
         const res = await execute(form)
         console.log(res)
-
+        if(res){
         setDisable(true)
         await message.success('Đăng nhập thành công', [2])
         setDisable(false)
+        }
+        else{
+        setDisable(true)
+        await message.error('Username or Password incorrect', [2])
+        setDisable(false)
+        }
       }
     } catch (err) {
       message.error('Username or Password incorrect', [3])
