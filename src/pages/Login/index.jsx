@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 import { authenticationservice } from '../../services/authentication.service'
 import { useAsync } from '../../hooks/useAsync'
-import { useAuth } from './../../components/AuthContext/index';
+import { useAuth } from './../../components/AuthContext/index'
 export default function Login() {
   const { loading, disable, execute, setDisable } = useAsync(
     authenticationservice.login
@@ -31,16 +31,15 @@ export default function Login() {
       if (validate()) {
         const res = await execute(form)
         // console.log(res)
-        if(res){
-        login(res)
-        setDisable(true)
-        await message.success('Đăng nhập thành công', [2])   
-        setDisable(false)
-        }
-        else{
-        setDisable(true)
-        await message.error('Error', [2])
-        setDisable(false)
+        if (res) {
+          login(res)
+          setDisable(true)
+          await message.success('Đăng nhập thành công', [2])
+          setDisable(false)
+        } else {
+          setDisable(true)
+          await message.error('Error', [2])
+          setDisable(false)
         }
       }
     } catch (err) {

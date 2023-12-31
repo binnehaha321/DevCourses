@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react'
-import avatar from '../../assets/images/avatar.jpg'
 import { Button, Input, Typography } from 'antd'
+
 import { userservice } from '../../services/user.service'
-import { getToken, setUser, getUser } from '../../lib/token'
+import { setUser, getUser } from '../../lib/token'
 import { validate } from '../../lib/validate'
+
+import avatar from '../../assets/images/avatar.jpg'
 
 export default function InformationUser() {
   const [stateInput, setStateInput] = useState(true)
   const [inforUser, setInforUser] = useState({})
   const [form, setForm] = useState({})
   const [errors, setErrors] = useState({})
+
   useEffect(() => {
     const user = getUser()
     // console.log(user)
@@ -21,13 +24,15 @@ export default function InformationUser() {
     setInforUser(user)
     // console.log(inforUser)
     async function getInfor() {
-      const infor = await userservice.getinfo(getToken())
-      setUser(infor.data.data)
+      const { data } = await userservice.getinfo()
+      if (!data?.data) return
+      setUser(data.data)
       const user = getUser()
       setInforUser(user)
     }
     getInfor()
   }, [])
+
   const _validate = () => {
     const errorObject = validate(
       { username: [{ required: true }], name: [{ required: true }] },
@@ -62,12 +67,13 @@ export default function InformationUser() {
     // console.log(validate())
   }
 
-  const saveInfor = async() => {
+  const saveInfor = async () => {
     // setStateInput(true)
     console.log(form)
     console.log(_validate())
-    const res = await userservice.updateinfo(form,getToken())
+    const res = await userservice.updateinfo(form)
     console.log(res)
+    // setInforUser(res)
     setStateInput(true)
   }
 
@@ -87,7 +93,7 @@ export default function InformationUser() {
         </button>
       </div>
       <div className='flex flex-col gap-4 mt-2 mb-4'>
-        {informationUser.map((user, index) => {
+        {informationUser?.map((user, index) => {
           return (
             <div key={index}>
               <Typography.Title level={5}>{user.name}</Typography.Title>

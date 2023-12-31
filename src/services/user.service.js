@@ -12,23 +12,11 @@ export const userservice = {
       data
     )
   },
-  getinfo(token) {
-    // Tạo một đối tượng cấu hình (config) cho yêu cầu GET
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token.accessToken}`,
-      },
-    }
-
+  getinfo() {
     // Thực hiện yêu cầu GET với cấu hình đã tạo
-    return request.get('https://course.spacedev.vn/users', config)
+    return request.get('https://course.spacedev.vn/users')
   },
-  updateinfo(data,token){
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token.accessToken}`,
-      },
-    }
-    return request.patch('https://course.spacedev.vn/users',data,config)
+  updateinfo(data) {
+    return request.patch('https://course.spacedev.vn/users', data)
   }
 }

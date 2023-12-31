@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faSun,
   faMoon,
   faBell,
   faUser,
-  faCalendarAlt,
   faGraduationCap
 } from '@fortawesome/free-solid-svg-icons'
 import Calendar from 'react-calendar'
