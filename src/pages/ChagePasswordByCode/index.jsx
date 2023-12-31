@@ -10,7 +10,7 @@ import { useAsync } from '../../hooks/useAsync'
 
 export default function ChangePasswordByCode() {
   const { loading, disable, execute, setDisable } = useAsync(
-    userservice.changepasswordbycode
+    userservice.changePasswordByCode
   )
   const { validate, register, setErrors, form } = useForm({
     password: [{ required: true }],
@@ -66,6 +66,7 @@ export default function ChangePasswordByCode() {
                 {...register('password')}
                 placeholder='Password'
                 icon={shield}
+                type='password'
               />
             </div>
             <div className='w-full flex flex-col gap-7 items-center mb-6'>
@@ -73,6 +74,7 @@ export default function ChangePasswordByCode() {
                 {...register('confirmpassword')}
                 placeholder='Confirm Password'
                 icon={shield}
+                type='password'
               />
             </div>
 

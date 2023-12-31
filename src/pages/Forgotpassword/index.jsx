@@ -9,7 +9,7 @@ import { userservice } from '../../services/user.service'
 import { useAsync } from '../../hooks/useAsync'
 export default function ForgotPassword() {
   const { loading, disable, execute, setDisable } = useAsync(
-    userservice.resetpassword
+    userservice.resetPassword
   )
   const { validate, register, form } = useForm({
     username: [
@@ -28,8 +28,8 @@ export default function ForgotPassword() {
       if (validate()) {
         const res = await execute(form)
         console.log(res)
-        await setDisable(true)
-        message.success(res.data.message, [2])
+        setDisable(true)
+        await message.success(res.data.message, [2])
         setDisable(false)
       } else {
         console.log('validate error')

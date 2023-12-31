@@ -10,9 +10,13 @@ function App() {
           index={route.index}
           path={route.path}
           element={
-            <route.layout>
+            route.layout ? (
+              <route.layout>
+                <route.component />
+              </route.layout>
+            ) : (
               <route.component />
-            </route.layout>
+            )
           }
         />
       ))}
