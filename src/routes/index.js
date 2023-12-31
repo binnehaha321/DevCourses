@@ -1,11 +1,11 @@
 import DefaultLayout from '../layout/DefaultLayout'
-import Courses from '../pages/Courses/index'
+import Courses from '../pages/Courses/Courses'
 import Home from '../pages/Home/index'
-import Payment from '../pages/Payment/index'
+import Payment from '../pages/Payment/Payment'
 import Contact from '../pages/Contact/index'
 import Students from '../pages/Students/index'
 import Attendance from '../pages/Attendance/index'
-import CourseDetail from '../pages/Courses/CourseDetail'
+import CourseDetail from '../pages/CoursesDetail/CourseDetail'
 
 const routes = [
   {
