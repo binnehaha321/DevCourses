@@ -1,5 +1,5 @@
 import { message } from 'antd'
-import login from '../../assets/images/login.png'
+import loginImage from '../../assets/images/login.png'
 import Input from '../../components/Input'
 import envelope from '../../assets/svgs/envelope.svg'
 import shieldslash from '../../assets/svgs/shield-slash.svg'
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 import { authenticationservice } from '../../services/authentication.service'
 import { useAsync } from '../../hooks/useAsync'
-
+import { useAuth } from './../../components/AuthContext/index';
 export default function Login() {
   const { loading, disable, execute, setDisable } = useAsync(
     authenticationservice.login
@@ -23,26 +23,28 @@ export default function Login() {
     ],
     password: [{ required: true }]
   })
-
+  const { login } = useAuth()
   const onSubmit = async (ev) => {
+    ev.preventDefault()
     try {
       ev.preventDefault()
       if (validate()) {
         const res = await execute(form)
-        console.log(res)
+        // console.log(res)
         if(res){
+        login(res)
         setDisable(true)
-        await message.success('Đăng nhập thành công', [2])
+        await message.success('Đăng nhập thành công', [2])   
         setDisable(false)
         }
         else{
         setDisable(true)
-        await message.error('Username or Password incorrect', [2])
+        await message.error('Error', [2])
         setDisable(false)
         }
       }
     } catch (err) {
-      message.error('Username or Password incorrect', [3])
+      message.error('Error', [3])
     }
   }
 
@@ -91,7 +93,7 @@ export default function Login() {
       </div>
 
       <div className='basis-1/2 '>
-        <img className='h-full w-full' src={login} alt='login' />
+        <img className='h-full w-full' src={loginImage} alt='login' />
       </div>
     </div>
   )

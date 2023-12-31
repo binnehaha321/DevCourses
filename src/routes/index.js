@@ -10,6 +10,7 @@ import Login from '../pages/Login/index'
 import Register from './../pages/Register/index';
 import ForgotPassword from '../pages/ForgotPassword/index'
 import ChangePasswordByCode from './../pages/ChagePasswordByCode/index';
+import InformationUser from '../pages/InformationUser'
 const routes = [
   {
     path:'/login',
@@ -26,6 +27,11 @@ const routes = [
   {
     path:'/changePasswordByCode',
     component: ChangePasswordByCode,
+  },
+  {
+    path:'/informationUser',
+    component: InformationUser,
+    layout: DefaultLayout,
   },
   {
     path: '/',
