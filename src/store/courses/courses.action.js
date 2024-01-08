@@ -3,40 +3,21 @@ import {
   loadCoursesSuccess,
   loadCoursesFailed
 } from '../../store/courses/courses.slice'
-// import DEFAULT_THUMBNAIL from '../../static/images/defaultCourseThumbnail.png'
 
 import axios from 'axios'
-const checkThumbnailErrors = (thumbnail) => {
-  // Create a promise for each course to load its thumbnail and handle errors
-  // const promises = courses.map((course) => {
-  //   return new Promise((resolve) => {
-  //     const img = new Image()
-  //     img.src = course.thumbnailUrl
 
-  //     // Handle errors using the onerror event
-  //     img.onerror = () => {
-  //       errors.push(course.id)
-  //       resolve()
-  //     }
-
-  //     // Resolve the promise when the image loads successfully
-  //     img.onload = resolve
-  //   })
-  // })
-
-  if (!thumbnail) return
-
+function checkThumbnailErrors(thumbnailUrl, defaultImageUrl) {
   return new Promise((resolve) => {
     const img = new Image()
-    img.src = thumbnail
+    img.src = thumbnailUrl
 
-    // Handle errors using the onerror event
     img.onerror = () => {
-      resolve(false)
+      resolve(defaultImageUrl) // Return the default image URL if there's an error
     }
 
-    // Resolve the promise when the image loads successfully
-    img.onload = resolve
+    img.onload = () => {
+      resolve(thumbnailUrl) // Return the original URL if the image loads successfully
+    }
   })
 }
 

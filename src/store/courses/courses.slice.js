@@ -5,7 +5,7 @@ const coursesSlice = createSlice({
   name: 'courses',
   initialState: {
     error: null,
-    loading: true
+    loading: false
   },
 
   reducers: {

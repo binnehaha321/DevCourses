@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import request from '../../api/axios';
+import request from '../../api/axios'
 
 export default function CourseDetail() {
   const { id } = useParams()
@@ -13,7 +13,7 @@ export default function CourseDetail() {
       setLoading(true)
       try {
         const { data } = await request.get(`/elearning/v4/courses/${id}`)
-        setCourse(data?.data);
+        setCourse(data?.data)
       } catch (error) {
         throw Error('Error fetching course details:', error)
       }

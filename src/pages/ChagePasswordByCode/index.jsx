@@ -10,7 +10,7 @@ import { useAsync } from '../../hooks/useAsync'
 
 export default function ChangePasswordByCode() {
   const { loading, disable, execute, setDisable } = useAsync(
-    userservice.changepasswordbycode
+    userservice.changePasswordByCode
   )
   const { validate, register, setErrors, form } = useForm({
     password: [{ required: true }],

@@ -1,14 +1,17 @@
-import { message } from 'antd'
-import registerimg from '../../assets/images/register.png'
-import Input from '../../components/Input'
-import envelope from '../../assets/svgs/envelope.svg'
-import shieldslash from '../../assets/svgs/shield-slash.svg'
-import person from '../../assets/svgs/person.svg'
-import Buttonlogin from '../../components/Button/buttonlogin'
 import { Link } from 'react-router-dom'
-import { useForm } from '../../hooks/useForm'
+import { message } from 'antd'
+
+import { useForm, useAsync } from '../../hooks'
 import { userservice } from './../../services/user.service'
-import { useAsync } from '../../hooks/useAsync'
+
+import shieldslash from '../../assets/svgs/shield-slash.svg'
+import registerimg from '../../assets/images/register.png'
+import envelope from '../../assets/svgs/envelope.svg'
+import person from '../../assets/svgs/person.svg'
+
+import Input from '../../components/Input'
+import Buttonlogin from '../../components/Button/buttonlogin'
+
 export default function Register() {
   const { loading, disable, execute, setDisable } = useAsync(
     userservice.register
