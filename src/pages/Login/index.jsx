@@ -6,10 +6,12 @@ import shieldslash from '../../assets/svgs/shield-slash.svg'
 import Buttonlogin from '../../components/Button/buttonlogin'
 import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
-import { authenticationservice } from '../../services/authentication.service'
 import { useAsync } from '../../hooks/useAsync'
-import { useAuth } from './../../components/AuthContext/index';
+import { useAuth } from '../../hooks/useAuth'
+import { authenticationservice } from '../../services/authentication.service'
+import { useNavigate } from 'react-router-dom'
 export default function Login() {
+  const navigate = useNavigate()
   const { loading, disable, execute, setDisable } = useAsync(
     authenticationservice.login
   )
@@ -36,6 +38,7 @@ export default function Login() {
         setDisable(true)
         await message.success('Đăng nhập thành công', [2])   
         setDisable(false)
+        navigate("/home")
         }
         else{
         setDisable(true)

@@ -13,7 +13,7 @@ import ChangePasswordByCode from './../pages/ChagePasswordByCode/index';
 import InformationUser from '../pages/InformationUser'
 const routes = [
   {
-    path:'/login',
+    path:'/',
     component: Login,
   },
   {
@@ -34,7 +34,7 @@ const routes = [
     layout: DefaultLayout,
   },
   {
-    path: '/',
+    path: '/home',
     component: Home,
     layout: DefaultLayout,
     index: true

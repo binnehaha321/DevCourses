@@ -1,19 +1,24 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Dropdown } from 'antd'
 import {
-  faSun,
   faMoon,
   faBell,
   faUser,
-  faCalendarAlt,
   faGraduationCap
 } from '@fortawesome/free-solid-svg-icons'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
-
+import { useAuth } from '../hooks/useAuth'
+import { useNavigate, Link } from 'react-router-dom'
 const RightSidebar = () => {
   const [date, setDate] = useState(new Date())
-
+  const {logout} = useAuth()
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    logout()
+    navigate("/")
+  }
   const tileClassName = ({ date, view }) => {
     if (view === 'month') {
       const dayOfWeek = date.getDay()
@@ -40,6 +45,30 @@ const RightSidebar = () => {
             {/* Use man or girl avatar based on some condition */}
             <FontAwesomeIcon icon={faGraduationCap} size='2x' />
           </div>
+          <div>
+          <Dropdown
+            menu={{items:[
+              {
+                label: <Link to="/informationUser">Thông tin cá nhân</Link>,
+                key: '0'
+              },
+              {
+                label: <div onClick={handleLogout}>Đăng xuất</div>,
+                key: '1'
+              },
+              
+            ]}}
+            trigger={['click']}
+          >
+            <a onClick={(e) => e.preventDefault()}>
+              <FontAwesomeIcon icon={faUser} size='2x' />
+            </a>
+          </Dropdown>
+
+          {/* Add components for user account and courses learning process */}
+          {/* Example: <UserAccountComponent /> */}
+          {/* Example: <CoursesLearningProcessComponent /> */}
+        </div>
         </div>
 
         {/* Second Row */}
@@ -52,12 +81,7 @@ const RightSidebar = () => {
           />
         </div>
         {/* Third Row */}
-        <div>
-          <FontAwesomeIcon icon={faUser} size='2x' />
-          {/* Add components for user account and courses learning process */}
-          {/* Example: <UserAccountComponent /> */}
-          {/* Example: <CoursesLearningProcessComponent /> */}
-        </div>
+        
       </div>
     </div>
   )
