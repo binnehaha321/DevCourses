@@ -4,12 +4,12 @@ import Input from '../../components/Input'
 import envelope from '../../assets/svgs/envelope.svg'
 import shieldslash from '../../assets/svgs/shield-slash.svg'
 import Buttonlogin from '../../components/Button/buttonlogin'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 import { useAsync } from '../../hooks/useAsync'
 import { useAuth } from '../../hooks/useAuth'
 import { authenticationservice } from '../../services/authentication.service'
-import { useNavigate } from 'react-router-dom'
+
 export default function Login() {
   const navigate = useNavigate()
   const { loading, disable, execute, setDisable } = useAsync(
@@ -60,7 +60,7 @@ export default function Login() {
             className='w-full flex flex-col justify-center items-center'
             onSubmit={onSubmit}
           >
-            <div className='w-full flex flex-col gap-7 items-center mb-1'>
+            <div className='w-4/5 flex flex-col gap-7 items-center mb-1'>
               <Input
                 {...register('username')}
                 placeholder='Email'

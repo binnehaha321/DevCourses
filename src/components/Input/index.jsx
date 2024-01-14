@@ -14,7 +14,7 @@ export default function Input({
   ...props
 }) {
   return (
-    <div className='relative flex gap-2 w-4/5 p-2.5 rounded-lg bg-blue-500 bg-opacity-10 border-2 border-solid border-blue-500 border-opacity-50'>
+    <div className='relative flex gap-2 w-full p-2.5 rounded-lg bg-blue-500 bg-opacity-10 border-2 border-solid border-blue-500 border-opacity-50'>
       <img src={icon}></img>
       <input
         className='w-full  bg-blue-500 bg-opacity-0 focus:outline-none '

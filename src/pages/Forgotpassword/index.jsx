@@ -50,7 +50,7 @@ export default function ForgotPassword() {
             className='w-full flex flex-col justify-center items-center'
             onSubmit={onSubmit}
           >
-            <div className='w-full flex flex-col gap-7 items-center mb-6'>
+            <div className='w-4/5 flex flex-col gap-7 items-center mb-6'>
               <Input
                 {...register('username')}
                 placeholder='Email'

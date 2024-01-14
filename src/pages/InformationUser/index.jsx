@@ -58,7 +58,7 @@ export default function InformationUser() {
     // console.log(form)
     // console.log(_validate())
     const res = await userservice.updateinfo(form,getToken())
-    console.log(res)
+    // console.log(res)
     setStateInput(true)
     setUser(res.data.data)
   }

@@ -65,7 +65,7 @@ export default function Register() {
             className='w-full flex flex-col justify-center items-center'
             onSubmit={onSubmit}
           >
-            <div className='w-full flex flex-col gap-7 items-center mb-1'>
+            <div className='w-4/5 flex flex-col gap-7 items-center mb-1'>
               <Input
                 {...register('name')}
                 placeholder='Username'
@@ -103,7 +103,7 @@ export default function Register() {
           <div className='w-full gap-1 flex justify-center mt-3'>
             <p>Don’t have account? </p>
             <span>
-              <Link className='font-semibold text-blue-700' to='/login'>
+              <Link className='font-semibold text-blue-700' to='/'>
                 Login now
               </Link>
             </span>
