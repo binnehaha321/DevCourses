@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Dropdown } from 'antd'
+import { Dropdown, Button } from 'antd'
 import {
   faMoon,
   faBell,
@@ -11,13 +11,15 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
 import { useAuth } from '../hooks/useAuth'
 import { useNavigate, Link } from 'react-router-dom'
+import { getUser } from '../lib/token'
 const RightSidebar = () => {
+  const user = getUser()
   const [date, setDate] = useState(new Date())
-  const {logout} = useAuth()
+  const { logout } = useAuth()
   const navigate = useNavigate()
   const handleLogout = () => {
     logout()
-    navigate("/")
+    navigate('/')
   }
   const tileClassName = ({ date, view }) => {
     if (view === 'month') {
@@ -46,29 +48,39 @@ const RightSidebar = () => {
             <FontAwesomeIcon icon={faGraduationCap} size='2x' />
           </div>
           <div>
-          <Dropdown
-            menu={{items:[
-              {
-                label: <Link to="/informationUser">Thông tin cá nhân</Link>,
-                key: '0'
-              },
-              {
-                label: <div onClick={handleLogout}>Đăng xuất</div>,
-                key: '1'
-              },
-              
-            ]}}
-            trigger={['click']}
-          >
-            <a onClick={(e) => e.preventDefault()}>
-              <FontAwesomeIcon icon={faUser} size='2x' />
-            </a>
-          </Dropdown>
-
-          {/* Add components for user account and courses learning process */}
-          {/* Example: <UserAccountComponent /> */}
-          {/* Example: <CoursesLearningProcessComponent /> */}
-        </div>
+            {user ? (
+              <Dropdown
+                menu={{
+                  items: [
+                    {
+                      label: (
+                        <Link to='/informationUser'>Thông tin cá nhân</Link>
+                      ),
+                      key: '0'
+                    },
+                    {
+                      label: <div onClick={handleLogout}>Đăng xuất</div>,
+                      key: '1'
+                    }
+                  ]
+                }}
+                trigger={['click']}
+              >
+                <a onClick={(e) => e.preventDefault()}>
+                  <FontAwesomeIcon icon={faUser} size='2x' />
+                </a>
+              </Dropdown>
+            ) : (
+              <Link to={'/'} class=' bg-blue-400 rounded-lg p-3 font-bold'>
+                <Button >
+                  Đăng nhập
+                </Button>
+              </Link>
+            )}
+            {/* Add components for user account and courses learning process */}
+            {/* Example: <UserAccountComponent /> */}
+            {/* Example: <CoursesLearningProcessComponent /> */}
+          </div>
         </div>
 
         {/* Second Row */}
@@ -81,7 +93,6 @@ const RightSidebar = () => {
           />
         </div>
         {/* Third Row */}
-        
       </div>
     </div>
   )

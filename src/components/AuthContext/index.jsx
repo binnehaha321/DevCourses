@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const login = async(data) => {
     setToken(data.data.data)
     const infor = await userservice.getinfo(getToken())
-    setUser(infor)
+    setUser(infor.data.data)
   }
   const logout = () => {
     setToken(null)

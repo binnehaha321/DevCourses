@@ -2,41 +2,32 @@ import { useEffect, useState } from 'react'
 import avatar from '../../assets/images/avatar.jpg'
 import { Button, Input, Typography } from 'antd'
 import { userservice } from '../../services/user.service'
-import { getToken, setUser, getUser } from '../../lib/token'
-import { validate } from '../../lib/validate'
+import { getToken, getUser, setUser } from '../../lib/token'
+// import { validate } from '../../lib/validate'
 
 export default function InformationUser() {
   const [stateInput, setStateInput] = useState(true)
   const [inforUser, setInforUser] = useState({})
   const [form, setForm] = useState({})
-  const [errors, setErrors] = useState({})
+  const [errors] = useState({})
   useEffect(() => {
     const user = getUser()
-    // console.log(user)
     const initForm = {}
     for (const key in user) {
       initForm[key] = user[key]
     }
     setForm(initForm)
     setInforUser(user)
-    // console.log(inforUser)
-    async function getInfor() {
-      const infor = await userservice.getinfo(getToken())
-      setUser(infor.data.data)
-      const user = getUser()
-      setInforUser(user)
-    }
-    getInfor()
   }, [])
-  const _validate = () => {
-    const errorObject = validate(
-      { username: [{ required: true }], name: [{ required: true }] },
-      form
-    )
-    setErrors(errorObject)
-    return Object.keys(errorObject).length === 0
-    // return errorObject
-  }
+  // const _validate = () => {
+  //   const errorObject = validate(
+  //     { username: [{ required: true }], name: [{ required: true }] },
+  //     form
+  //   )
+  //   setErrors(errorObject)
+  //   return Object.keys(errorObject).length === 0
+  //   // return errorObject
+  // }
   const register = (name) => {
     // form[name]=String(inforUser[name])
     return {
@@ -64,11 +55,12 @@ export default function InformationUser() {
 
   const saveInfor = async() => {
     // setStateInput(true)
-    console.log(form)
-    console.log(_validate())
+    // console.log(form)
+    // console.log(_validate())
     const res = await userservice.updateinfo(form,getToken())
     console.log(res)
     setStateInput(true)
+    setUser(res.data.data)
   }
 
   return (

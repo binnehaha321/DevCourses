@@ -13,7 +13,7 @@ import {
 
 export default function LeftSidebar() {
   const menuItems = [
-    { icon: faHome, title: 'Home', path: '/' },
+    { icon: faHome, title: 'Home', path: '/home' },
     { icon: faUser, title: 'Students', path: '/students' },
     { icon: faBook, title: 'Courses', path: '/courses' },
     { icon: faClipboard, title: 'Attendance', path: '/attendance' },
