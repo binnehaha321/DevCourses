@@ -7,7 +7,7 @@ const AuthContext = createContext('AuthContext')
 export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }) => {
-  const login = async(data) => {
+  const login = async (data) => {
     setToken(data.data.data)
     console.log(getToken())
     const infor = await userservice.getinfo(getToken())
@@ -16,10 +16,8 @@ export const AuthProvider = ({ children }) => {
   }
   const logout = () => {
     setToken(null)
-    
   }
   return (
-    // eslint-disable-next-line react/react-in-jsx-scope
     <AuthContext.Provider value={{ login, logout }}>
       {children}
     </AuthContext.Provider>

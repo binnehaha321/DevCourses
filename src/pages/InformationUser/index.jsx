@@ -62,11 +62,11 @@ export default function InformationUser() {
     // console.log(validate())
   }
 
-  const saveInfor = async() => {
+  const saveInfor = async () => {
     // setStateInput(true)
     console.log(form)
     console.log(_validate())
-    const res = await userservice.updateinfo(form,getToken())
+    const res = await userservice.updateinfo(form, getToken())
     console.log(res)
     setStateInput(true)
   }

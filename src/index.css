@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.highlight-weekend {
-  color: #0099ff;
+* {
+  box-sizing: border-box;
 }

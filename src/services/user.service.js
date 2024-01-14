@@ -16,19 +16,19 @@ export const userservice = {
     // Tạo một đối tượng cấu hình (config) cho yêu cầu GET
     const config = {
       headers: {
-        Authorization: `Bearer ${token.accessToken}`,
-      },
+        Authorization: `Bearer ${token.accessToken}`
+      }
     }
 
     // Thực hiện yêu cầu GET với cấu hình đã tạo
     return request.get('https://course.spacedev.vn/users', config)
   },
-  updateinfo(data,token){
+  updateinfo(data, token) {
     const config = {
       headers: {
-        Authorization: `Bearer ${token.accessToken}`,
-      },
+        Authorization: `Bearer ${token.accessToken}`
+      }
     }
-    return request.patch('https://course.spacedev.vn/users',data,config)
+    return request.patch('https://course.spacedev.vn/users', data, config)
   }
 }

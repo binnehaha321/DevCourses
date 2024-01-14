@@ -1,0 +1,50 @@
+.course-container {
+  /* Box Model */
+  box-sizing: border-box;
+
+  /* Visual */
+  background-color: #fff;
+  border-radius: 4px;
+  opacity: 1;
+  overflow: auto;
+
+  /* CSS3 */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.course-container:hover {
+  /* Change color on hover */
+  background-color: #f0f0f0;
+
+  /* Scale up on hover */
+  transform: scale(1.05);
+}
+/* ------------------------------------------------------------------------------------- */
+.course-thumbnail {
+  /* Box Model */
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* Visual */
+  background-color: #fff;
+  border-radius: 4px;
+  opacity: 1;
+  overflow: auto;
+  border: 1px solid #3b82f6;
+
+  /* CSS3 */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.course-thumbnail:hover {
+  /* Change color on hover */
+  background-color: #f0f0f0;
+
+  /* Scale up on hover */
+  transform: scale(1.05);
+}

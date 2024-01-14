@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { checkThumbnailErrors } from '../../store/courses/courses.action'
+import { useState, useEffect } from 'react'
+import { checkThumbnailErrors } from '../../../store/courses/courses.action'
 
 function ValidatedImage({ src, alt, defaultImageUrl }) {
   const [validatedSrc, setValidatedSrc] = useState(null)
@@ -17,7 +17,13 @@ function ValidatedImage({ src, alt, defaultImageUrl }) {
     return null // or return a loading indicator
   }
 
-  return <img class='w-full h-[200px]' src={validatedSrc} alt={alt} />
+  return (
+    <img
+      className='w-full h-[200px] course-thumbnail'
+      src={validatedSrc}
+      alt={alt}
+    />
+  )
 }
 
 export { ValidatedImage }

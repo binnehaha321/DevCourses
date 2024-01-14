@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { message } from 'antd'
 
-import { useForm, useAsync } from '../../hooks/useForm'
+import { useForm } from '../../hooks/useForm'
+import { useAsync } from '../../hooks/useAsync'
 import { userservice } from './../../services/user.service'
 
 import shieldslash from '../../assets/svgs/shield-slash.svg'

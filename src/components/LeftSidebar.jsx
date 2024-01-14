@@ -39,26 +39,29 @@ export default function LeftSidebar() {
         style={{ height: '40vh' }}
       >
         {menuItems.map((item, index) => (
-          <div
-            key={index}
-            className={`flex items-center my-2 cursor-pointer`}
-            onClick={() => handleClick(item.path)}
-          >
-            <div className='mr-2'>
-              <FontAwesomeIcon
-                icon={item.icon}
-                color={activeItem === item.path ? '#9D9DF8' : '#676d70'}
-              />
-            </div>
-            <div
-              style={{
-                color: activeItem === item.path ? '#9D9DF8' : '#676d70'
-              }}
-            >
-              {' '}
-              <Link to={item.path}>{item.title}</Link>{' '}
-            </div>
-          </div>
+          <>
+            <Link to={item.path}>
+              <div
+                key={index}
+                className={`flex items-center my-2 cursor-pointer`}
+                onClick={() => handleClick(item.path)}
+              >
+                <div className='mr-2'>
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    color={activeItem === item.path ? '#9D9DF8' : '#676d70'}
+                  />
+                </div>
+                <div
+                  style={{
+                    color: activeItem === item.path ? '#9D9DF8' : '#676d70'
+                  }}
+                >
+                  <p style={{ fontSize: '1.3rem' }}>{item.title}</p>
+                </div>
+              </div>
+            </Link>
+          </>
         ))}
       </div>
     </div>

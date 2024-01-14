@@ -1,0 +1,56 @@
+.content {
+  color: #676d70; /* text color */
+  font-size: 1.2rem;
+  border: 1px solid #0099ff; /* border color */
+  border-radius: 5px;
+  padding: 5px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  text-indent: 10px;
+  line-height: 1.4;
+  word-spacing: 5px;
+  white-space: pre-line;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  outline: 1px dashed #f00;
+}
+
+.section {
+  height: fit-content;
+  margin-top: 2rem;
+}
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0b1223;
+  text-shadow: 2px 2px 4px rgba(167, 32, 167, 0.5);
+  background-color: #f0f8ff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: underline overline;
+  line-height: 1.6;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  outline: 2px dashed #f00;
+  margin-bottom: 2rem;
+}
+
+.subHeader {
+  color: #3b82f6; /* text color */
+  font-size: 1.2rem;
+  background-color: #9d9df8; /* background color */
+  border-radius: 10px;
+  padding: 5px;
+  word-spacing: 5px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}

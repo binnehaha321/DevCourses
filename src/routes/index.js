@@ -5,38 +5,34 @@ import Payment from '../pages/Payment/Payment'
 import Contact from '../pages/Contact/index'
 import Students from '../pages/Students/index'
 import Attendance from '../pages/Attendance/index'
-<<<<<<< HEAD
-import CourseDetail from '../pages/CoursesDetail/CourseDetail'
 
-=======
-import CourseDetail from '../pages/Courses/CourseDetail'
+import CourseDetail from '../pages/CoursesDetail/CourseDetail'
 import Login from '../pages/Login/index'
-import Register from './../pages/Register/index';
+import Register from './../pages/Register/index'
 import ForgotPassword from '../pages/ForgotPassword/index'
-import ChangePasswordByCode from './../pages/ChagePasswordByCode/index';
+import ChangePasswordByCode from './../pages/ChagePasswordByCode/index'
 import InformationUser from '../pages/InformationUser'
->>>>>>> main
 const routes = [
   {
-    path:'/login',
-    component: Login,
+    path: '/login',
+    component: Login
   },
   {
-    path:'/register',
-    component: Register,
+    path: '/register',
+    component: Register
   },
   {
-    path:'/forgotPassword',
-    component: ForgotPassword,
+    path: '/forgotPassword',
+    component: ForgotPassword
   },
   {
-    path:'/changePasswordByCode',
-    component: ChangePasswordByCode,
+    path: '/changePasswordByCode',
+    component: ChangePasswordByCode
   },
   {
-    path:'/informationUser',
+    path: '/informationUser',
     component: InformationUser,
-    layout: DefaultLayout,
+    layout: DefaultLayout
   },
   {
     path: '/',

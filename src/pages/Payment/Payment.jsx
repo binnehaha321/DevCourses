@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
-
+import ResizableComponent from './Resizeable'
+import PaymentInfo from './PaymentInfo'
 function Payment() {
-  return <></>
+  return (
+    <>
+      <PaymentInfo />
+      <ResizableComponent />
+    </>
+  )
 }
 
 export default Payment
