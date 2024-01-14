@@ -28,6 +28,7 @@ export const useForm = (rules) => {
 
   return {
     form,
+    setForm,
     errors,
     setErrors,
     validate: _validate,

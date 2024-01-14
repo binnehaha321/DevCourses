@@ -52,8 +52,8 @@ export default function Contact() {
   }
   return (
     <div className='flex flex-row  gap-6'>
-      <div className='basis-5/12 flex flex-col justify-center items-center '>
-        <h1 className=' font-bold text-4xl'> Let&apos;s talk with us</h1>
+      <div className='basis-5/12 flex flex-col npm items-center mt-11'>
+        <h1 className=' font-bold text-4xl mt-11'> Let&apos;s talk with us</h1>
         <p className='mt-5'>
           Questions, comments, or suggestions? Simply fill in the form and we’ll
           be in touch shortly.
